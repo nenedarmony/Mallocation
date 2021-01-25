@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class mallsDAL
+    public class mallsDAL
     {
     }
 }
