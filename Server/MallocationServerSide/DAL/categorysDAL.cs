@@ -14,5 +14,15 @@ namespace DAL
             DB.categorys_tbl.Add(categorys);
             DB.SaveChanges();
         }
+        public List<categorys_tbl> Get()
+        {
+            return DB.categorys_tbl.ToList();
+        }
+
+        public void Delete(categorys_tbl categorys)
+        {
+            DB.categorys_tbl.Remove(categorys);
+            DB.SaveChanges();
+        }
     }
 }

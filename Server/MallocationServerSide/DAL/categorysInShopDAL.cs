@@ -15,5 +15,15 @@ namespace DAL
             DB.categorys_in_shop.Add(categorysInShop);
             DB.SaveChanges();
         }
+        public List<categorys_in_shop> Get()
+        {
+            return DB.categorys_in_shop.ToList();
+        }
+
+        public void Delete(categorys_in_shop categorysInShop)
+        {
+            DB.categorys_in_shop.Remove(categorysInShop);
+            DB.SaveChanges();
+        }
     }
 }

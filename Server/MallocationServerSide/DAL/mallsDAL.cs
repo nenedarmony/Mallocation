@@ -14,5 +14,16 @@ namespace DAL
             DB.malls_tbl.Add(malls);
             DB.SaveChanges();
         }
+        public List<malls_tbl> Get()
+        {
+            return DB.malls_tbl.ToList();
+        }
+
+
+        public void Delete(malls_tbl malls)
+        {
+            DB.malls_tbl.Remove(malls);
+            DB.SaveChanges();
+        }
     }
 }

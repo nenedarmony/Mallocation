@@ -14,5 +14,17 @@ namespace DAL
             DB.custumers_tbl.Add(custumers);
             DB.SaveChanges();
         }
+
+
+        public List<custumers_tbl> Get()
+        {
+            return DB.custumers_tbl.ToList();
+        }
+
+        public void Delete(custumers_tbl custumers)
+        {
+            DB.custumers_tbl.Remove(custumers);
+            DB.SaveChanges();
+        }
     }
 }
