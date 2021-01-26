@@ -56,6 +56,7 @@
     <Compile Include="categorysInShopBLL.cs" />
     <Compile Include="custumerHistorysBLL.cs" />
     <Compile Include="custumersBLL.cs" />
+    <Compile Include="MallsBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="shopsBLL.cs" />
     <Compile Include="shopsInMallBLL.cs" />

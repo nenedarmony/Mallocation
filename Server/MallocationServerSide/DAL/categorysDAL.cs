@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Models;
 namespace DAL
 {
-    public class categorysDAL
+    public class CategorysDAL
     {
         DatabaseEntities DB = new DatabaseEntities();
         public void Add(categorys_tbl categorys)

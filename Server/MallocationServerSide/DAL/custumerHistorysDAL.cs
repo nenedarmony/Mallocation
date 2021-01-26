@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Models;
 namespace DAL
 {
-    public class custumerHistorysDAL
+    public class CustumerHistorysDAL
     {
         DatabaseEntities DB = new DatabaseEntities();
 
