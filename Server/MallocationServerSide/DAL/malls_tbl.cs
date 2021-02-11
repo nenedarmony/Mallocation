@@ -7,23 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Models
+namespace DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class categorys_tbl
+    public partial class malls_tbl
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public categorys_tbl()
+        public malls_tbl()
         {
-            this.categorys_in_shop = new HashSet<categorys_in_shop>();
+            this.shopsInMall_tbl = new HashSet<shopsInMall_tbl>();
         }
     
-        public int CategoryID { get; set; }
-        public string Category { get; set; }
+        public int MallID { get; set; }
+        public string MallName { get; set; }
+        public double CurentLat { get; set; }
+        public double CurentLang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<categorys_in_shop> categorys_in_shop { get; set; }
+        public virtual ICollection<shopsInMall_tbl> shopsInMall_tbl { get; set; }
     }
 }

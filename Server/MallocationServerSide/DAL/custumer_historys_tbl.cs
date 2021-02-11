@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Models
+namespace DAL
 {
     using System;
     using System.Collections.Generic;
@@ -15,10 +15,10 @@ namespace Models
     public partial class custumer_historys_tbl
     {
         public int CustumerHistorysID { get; set; }
-        public Nullable<int> IDFromShop { get; set; }
-        public Nullable<int> IDfromUser { get; set; }
-        public Nullable<int> NumOfTimeGoToShope { get; set; }
-        public Nullable<int> NumOfTimeWasSatified { get; set; }
+        public int IDFromShop { get; set; }
+        public int IDfromUser { get; set; }
+        public int NumOfTimeGoToShope { get; set; }
+        public int NumOfTimeWasSatified { get; set; }
     
         public virtual shops_tbl shops_tbl { get; set; }
         public virtual custumers_tbl custumers_tbl { get; set; }

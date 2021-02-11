@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,25 +53,86 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="audiencesDAL.cs" />
+    <Compile Include="AudiencesDAL.cs" />
+    <Compile Include="audiences_tbl.cs">
+      <DependentUpon>MalocationServer.tt</DependentUpon>
+    </Compile>
     <Compile Include="categorysDAL.cs" />
-    <Compile Include="categorysInShopDAL.cs" />
-    <Compile Include="custumerHistorysDAL.cs" />
-    <Compile Include="custumersDAL.cs" />
-    <Compile Include="mallsDAL.cs" />
+    <Compile Include="CategorysInShopDAL.cs" />
+    <Compile Include="categorys_in_shop.cs">
+      <DependentUpon>MalocationServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="categorys_tbl.cs">
+      <DependentUpon>MalocationServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDAL.cs" />
+    <Compile Include="CustomerHistoryDAL.cs" />
+    <Compile Include="custumers_tbl.cs">
+      <DependentUpon>MalocationServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="custumer_historys_tbl.cs">
+      <DependentUpon>MalocationServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MallsDAL.cs" />
+    <Compile Include="malls_tbl.cs">
+      <DependentUpon>MalocationServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MalocationServer.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MalocationServer.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MalocationServer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MalocationServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MalocationServer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MalocationServer.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="shopsDAL.cs" />
-    <Compile Include="shopsInMallDAL.cs" />
+    <Compile Include="ShopsDAL.cs" />
+    <Compile Include="ShopsInMallDAL.cs" />
+    <Compile Include="shopsInMall_tbl.cs">
+      <DependentUpon>MalocationServer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="shops_tbl.cs">
+      <DependentUpon>MalocationServer.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{511a7e69-6ee5-4c42-835a-1d844ac357b5}</Project>
-      <Name>Models</Name>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{ca413e9a-6aa9-49e6-84ff-51fe4be46767}</Project>
+      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="MalocationServer.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MalocationServer.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MalocationServer.edmx.diagram">
+      <DependentUpon>MalocationServer.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MalocationServer.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MalocationServer.edmx</DependentUpon>
+      <LastGenOutput>MalocationServer.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MalocationServer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MalocationServer.edmx</DependentUpon>
+      <LastGenOutput>MalocationServer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

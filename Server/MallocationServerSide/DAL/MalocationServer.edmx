@@ -17,8 +17,8 @@
             <PropertyRef Name="categoryInShopID" />
           </Key>
           <Property Name="categoryInShopID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdFromCategory" Type="int" />
-          <Property Name="IdFromShop" Type="int" />
+          <Property Name="IdFromCategory" Type="int" Nullable="false" />
+          <Property Name="IdFromShop" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="categorys_tbl">
           <Key>
@@ -32,10 +32,10 @@
             <PropertyRef Name="CustumerHistorysID" />
           </Key>
           <Property Name="CustumerHistorysID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDFromShop" Type="int" />
-          <Property Name="IDfromUser" Type="int" />
-          <Property Name="NumOfTimeGoToShope" Type="int" />
-          <Property Name="NumOfTimeWasSatified" Type="int" />
+          <Property Name="IDFromShop" Type="int" Nullable="false" />
+          <Property Name="IDfromUser" Type="int" Nullable="false" />
+          <Property Name="NumOfTimeGoToShope" Type="int" Nullable="false" />
+          <Property Name="NumOfTimeWasSatified" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="custumers_tbl">
           <Key>
@@ -50,8 +50,8 @@
           </Key>
           <Property Name="MallID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MallName" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="CurentLat" Type="float" />
-          <Property Name="CurentLang" Type="float" />
+          <Property Name="CurentLat" Type="float" Nullable="false" />
+          <Property Name="CurentLang" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="shops_tbl">
           <Key>
@@ -59,18 +59,18 @@
           </Key>
           <Property Name="ShopID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ShopName" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="IdFromAudience" Type="int" />
+          <Property Name="IdFromAudience" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="shopsInMall_tbl">
           <Key>
             <PropertyRef Name="shopInMallID" />
           </Key>
           <Property Name="shopInMallID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdFromMall" Type="int" />
-          <Property Name="IdFromShop" Type="int" />
+          <Property Name="IdFromMall" Type="int" Nullable="false" />
+          <Property Name="IdFromShop" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__categorys__IdFro__300424B4">
-          <End Role="categorys_tbl" Type="Self.categorys_tbl" Multiplicity="0..1" />
+        <Association Name="FK__categorys__IdFro__47DBAE45">
+          <End Role="categorys_tbl" Type="Self.categorys_tbl" Multiplicity="1" />
           <End Role="categorys_in_shop" Type="Self.categorys_in_shop" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="categorys_tbl">
@@ -81,8 +81,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__categorys__IdFro__30F848ED">
-          <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="0..1" />
+        <Association Name="FK__categorys__IdFro__48CFD27E">
+          <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="1" />
           <End Role="categorys_in_shop" Type="Self.categorys_in_shop" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="shops_tbl">
@@ -93,8 +93,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__custumer___IDFro__35BCFE0A">
-          <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="0..1" />
+        <Association Name="FK__custumer___IDFro__5AEE82B9">
+          <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="1" />
           <End Role="custumer_historys_tbl" Type="Self.custumer_historys_tbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="shops_tbl">
@@ -105,8 +105,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__custumer___IDfro__36B12243">
-          <End Role="custumers_tbl" Type="Self.custumers_tbl" Multiplicity="0..1" />
+        <Association Name="FK__custumer___IDfro__5BE2A6F2">
+          <End Role="custumers_tbl" Type="Self.custumers_tbl" Multiplicity="1" />
           <End Role="custumer_historys_tbl" Type="Self.custumer_historys_tbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="custumers_tbl">
@@ -117,8 +117,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__shops_tbl__IdFro__29572725">
-          <End Role="audiences_tbl" Type="Self.audiences_tbl" Multiplicity="0..1" />
+        <Association Name="FK__shops_tbl__IdFro__5CD6CB2B">
+          <End Role="audiences_tbl" Type="Self.audiences_tbl" Multiplicity="1" />
           <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="audiences_tbl">
@@ -129,8 +129,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__shopsInMa__IdFro__2C3393D0">
-          <End Role="malls_tbl" Type="Self.malls_tbl" Multiplicity="0..1" />
+        <Association Name="FK__shopsInMa__IdFro__5DCAEF64">
+          <End Role="malls_tbl" Type="Self.malls_tbl" Multiplicity="1" />
           <End Role="shopsInMall_tbl" Type="Self.shopsInMall_tbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="malls_tbl">
@@ -141,8 +141,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__shopsInMa__IdFro__2D27B809">
-          <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="0..1" />
+        <Association Name="FK__shopsInMa__IdFro__5EBF139D">
+          <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="1" />
           <End Role="shopsInMall_tbl" Type="Self.shopsInMall_tbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="shops_tbl">
@@ -162,31 +162,31 @@
           <EntitySet Name="malls_tbl" EntityType="Self.malls_tbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="shops_tbl" EntityType="Self.shops_tbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="shopsInMall_tbl" EntityType="Self.shopsInMall_tbl" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__categorys__IdFro__300424B4" Association="Self.FK__categorys__IdFro__300424B4">
+          <AssociationSet Name="FK__categorys__IdFro__47DBAE45" Association="Self.FK__categorys__IdFro__47DBAE45">
             <End Role="categorys_tbl" EntitySet="categorys_tbl" />
             <End Role="categorys_in_shop" EntitySet="categorys_in_shop" />
           </AssociationSet>
-          <AssociationSet Name="FK__categorys__IdFro__30F848ED" Association="Self.FK__categorys__IdFro__30F848ED">
+          <AssociationSet Name="FK__categorys__IdFro__48CFD27E" Association="Self.FK__categorys__IdFro__48CFD27E">
             <End Role="shops_tbl" EntitySet="shops_tbl" />
             <End Role="categorys_in_shop" EntitySet="categorys_in_shop" />
           </AssociationSet>
-          <AssociationSet Name="FK__custumer___IDFro__35BCFE0A" Association="Self.FK__custumer___IDFro__35BCFE0A">
+          <AssociationSet Name="FK__custumer___IDFro__5AEE82B9" Association="Self.FK__custumer___IDFro__5AEE82B9">
             <End Role="shops_tbl" EntitySet="shops_tbl" />
             <End Role="custumer_historys_tbl" EntitySet="custumer_historys_tbl" />
           </AssociationSet>
-          <AssociationSet Name="FK__custumer___IDfro__36B12243" Association="Self.FK__custumer___IDfro__36B12243">
+          <AssociationSet Name="FK__custumer___IDfro__5BE2A6F2" Association="Self.FK__custumer___IDfro__5BE2A6F2">
             <End Role="custumers_tbl" EntitySet="custumers_tbl" />
             <End Role="custumer_historys_tbl" EntitySet="custumer_historys_tbl" />
           </AssociationSet>
-          <AssociationSet Name="FK__shops_tbl__IdFro__29572725" Association="Self.FK__shops_tbl__IdFro__29572725">
+          <AssociationSet Name="FK__shops_tbl__IdFro__5CD6CB2B" Association="Self.FK__shops_tbl__IdFro__5CD6CB2B">
             <End Role="audiences_tbl" EntitySet="audiences_tbl" />
             <End Role="shops_tbl" EntitySet="shops_tbl" />
           </AssociationSet>
-          <AssociationSet Name="FK__shopsInMa__IdFro__2C3393D0" Association="Self.FK__shopsInMa__IdFro__2C3393D0">
+          <AssociationSet Name="FK__shopsInMa__IdFro__5DCAEF64" Association="Self.FK__shopsInMa__IdFro__5DCAEF64">
             <End Role="malls_tbl" EntitySet="malls_tbl" />
             <End Role="shopsInMall_tbl" EntitySet="shopsInMall_tbl" />
           </AssociationSet>
-          <AssociationSet Name="FK__shopsInMa__IdFro__2D27B809" Association="Self.FK__shopsInMa__IdFro__2D27B809">
+          <AssociationSet Name="FK__shopsInMa__IdFro__5EBF139D" Association="Self.FK__shopsInMa__IdFro__5EBF139D">
             <End Role="shops_tbl" EntitySet="shops_tbl" />
             <End Role="shopsInMall_tbl" EntitySet="shopsInMall_tbl" />
           </AssociationSet>
@@ -202,17 +202,17 @@
           </Key>
           <Property Name="AudienceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AudienceName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="shops_tbl" Relationship="Self.FK__shops_tbl__IdFro__29572725" FromRole="audiences_tbl" ToRole="shops_tbl" />
+          <NavigationProperty Name="shops_tbl" Relationship="Self.FK__shops_tbl__IdFro__5CD6CB2B" FromRole="audiences_tbl" ToRole="shops_tbl" />
         </EntityType>
         <EntityType Name="categorys_in_shop">
           <Key>
             <PropertyRef Name="categoryInShopID" />
           </Key>
           <Property Name="categoryInShopID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdFromCategory" Type="Int32" />
-          <Property Name="IdFromShop" Type="Int32" />
-          <NavigationProperty Name="categorys_tbl" Relationship="Self.FK__categorys__IdFro__300424B4" FromRole="categorys_in_shop" ToRole="categorys_tbl" />
-          <NavigationProperty Name="shops_tbl" Relationship="Self.FK__categorys__IdFro__30F848ED" FromRole="categorys_in_shop" ToRole="shops_tbl" />
+          <Property Name="IdFromCategory" Type="Int32" Nullable="false" />
+          <Property Name="IdFromShop" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="categorys_tbl" Relationship="Self.FK__categorys__IdFro__47DBAE45" FromRole="categorys_in_shop" ToRole="categorys_tbl" />
+          <NavigationProperty Name="shops_tbl" Relationship="Self.FK__categorys__IdFro__48CFD27E" FromRole="categorys_in_shop" ToRole="shops_tbl" />
         </EntityType>
         <EntityType Name="categorys_tbl">
           <Key>
@@ -220,19 +220,19 @@
           </Key>
           <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="categorys_in_shop" Relationship="Self.FK__categorys__IdFro__300424B4" FromRole="categorys_tbl" ToRole="categorys_in_shop" />
+          <NavigationProperty Name="categorys_in_shop" Relationship="Self.FK__categorys__IdFro__47DBAE45" FromRole="categorys_tbl" ToRole="categorys_in_shop" />
         </EntityType>
         <EntityType Name="custumer_historys_tbl">
           <Key>
             <PropertyRef Name="CustumerHistorysID" />
           </Key>
           <Property Name="CustumerHistorysID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDFromShop" Type="Int32" />
-          <Property Name="IDfromUser" Type="Int32" />
-          <Property Name="NumOfTimeGoToShope" Type="Int32" />
-          <Property Name="NumOfTimeWasSatified" Type="Int32" />
-          <NavigationProperty Name="shops_tbl" Relationship="Self.FK__custumer___IDFro__35BCFE0A" FromRole="custumer_historys_tbl" ToRole="shops_tbl" />
-          <NavigationProperty Name="custumers_tbl" Relationship="Self.FK__custumer___IDfro__36B12243" FromRole="custumer_historys_tbl" ToRole="custumers_tbl" />
+          <Property Name="IDFromShop" Type="Int32" Nullable="false" />
+          <Property Name="IDfromUser" Type="Int32" Nullable="false" />
+          <Property Name="NumOfTimeGoToShope" Type="Int32" Nullable="false" />
+          <Property Name="NumOfTimeWasSatified" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="shops_tbl" Relationship="Self.FK__custumer___IDFro__5AEE82B9" FromRole="custumer_historys_tbl" ToRole="shops_tbl" />
+          <NavigationProperty Name="custumers_tbl" Relationship="Self.FK__custumer___IDfro__5BE2A6F2" FromRole="custumer_historys_tbl" ToRole="custumers_tbl" />
         </EntityType>
         <EntityType Name="custumers_tbl">
           <Key>
@@ -240,7 +240,7 @@
           </Key>
           <Property Name="CustumerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CustumerName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="custumer_historys_tbl" Relationship="Self.FK__custumer___IDfro__36B12243" FromRole="custumers_tbl" ToRole="custumer_historys_tbl" />
+          <NavigationProperty Name="custumer_historys_tbl" Relationship="Self.FK__custumer___IDfro__5BE2A6F2" FromRole="custumers_tbl" ToRole="custumer_historys_tbl" />
         </EntityType>
         <EntityType Name="malls_tbl">
           <Key>
@@ -248,9 +248,9 @@
           </Key>
           <Property Name="MallID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MallName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CurentLat" Type="Double" />
-          <Property Name="CurentLang" Type="Double" />
-          <NavigationProperty Name="shopsInMall_tbl" Relationship="Self.FK__shopsInMa__IdFro__2C3393D0" FromRole="malls_tbl" ToRole="shopsInMall_tbl" />
+          <Property Name="CurentLat" Type="Double" Nullable="false" />
+          <Property Name="CurentLang" Type="Double" Nullable="false" />
+          <NavigationProperty Name="shopsInMall_tbl" Relationship="Self.FK__shopsInMa__IdFro__5DCAEF64" FromRole="malls_tbl" ToRole="shopsInMall_tbl" />
         </EntityType>
         <EntityType Name="shops_tbl">
           <Key>
@@ -258,24 +258,24 @@
           </Key>
           <Property Name="ShopID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ShopName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IdFromAudience" Type="Int32" />
-          <NavigationProperty Name="audiences_tbl" Relationship="Self.FK__shops_tbl__IdFro__29572725" FromRole="shops_tbl" ToRole="audiences_tbl" />
-          <NavigationProperty Name="categorys_in_shop" Relationship="Self.FK__categorys__IdFro__30F848ED" FromRole="shops_tbl" ToRole="categorys_in_shop" />
-          <NavigationProperty Name="custumer_historys_tbl" Relationship="Self.FK__custumer___IDFro__35BCFE0A" FromRole="shops_tbl" ToRole="custumer_historys_tbl" />
-          <NavigationProperty Name="shopsInMall_tbl" Relationship="Self.FK__shopsInMa__IdFro__2D27B809" FromRole="shops_tbl" ToRole="shopsInMall_tbl" />
+          <Property Name="IdFromAudience" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="audiences_tbl" Relationship="Self.FK__shops_tbl__IdFro__5CD6CB2B" FromRole="shops_tbl" ToRole="audiences_tbl" />
+          <NavigationProperty Name="categorys_in_shop" Relationship="Self.FK__categorys__IdFro__48CFD27E" FromRole="shops_tbl" ToRole="categorys_in_shop" />
+          <NavigationProperty Name="custumer_historys_tbl" Relationship="Self.FK__custumer___IDFro__5AEE82B9" FromRole="shops_tbl" ToRole="custumer_historys_tbl" />
+          <NavigationProperty Name="shopsInMall_tbl" Relationship="Self.FK__shopsInMa__IdFro__5EBF139D" FromRole="shops_tbl" ToRole="shopsInMall_tbl" />
         </EntityType>
         <EntityType Name="shopsInMall_tbl">
           <Key>
             <PropertyRef Name="shopInMallID" />
           </Key>
           <Property Name="shopInMallID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdFromMall" Type="Int32" />
-          <Property Name="IdFromShop" Type="Int32" />
-          <NavigationProperty Name="malls_tbl" Relationship="Self.FK__shopsInMa__IdFro__2C3393D0" FromRole="shopsInMall_tbl" ToRole="malls_tbl" />
-          <NavigationProperty Name="shops_tbl" Relationship="Self.FK__shopsInMa__IdFro__2D27B809" FromRole="shopsInMall_tbl" ToRole="shops_tbl" />
+          <Property Name="IdFromMall" Type="Int32" Nullable="false" />
+          <Property Name="IdFromShop" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="malls_tbl" Relationship="Self.FK__shopsInMa__IdFro__5DCAEF64" FromRole="shopsInMall_tbl" ToRole="malls_tbl" />
+          <NavigationProperty Name="shops_tbl" Relationship="Self.FK__shopsInMa__IdFro__5EBF139D" FromRole="shopsInMall_tbl" ToRole="shops_tbl" />
         </EntityType>
-        <Association Name="FK__shops_tbl__IdFro__29572725">
-          <End Role="audiences_tbl" Type="Self.audiences_tbl" Multiplicity="0..1" />
+        <Association Name="FK__shops_tbl__IdFro__5CD6CB2B">
+          <End Role="audiences_tbl" Type="Self.audiences_tbl" Multiplicity="1" />
           <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="audiences_tbl">
@@ -286,8 +286,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__categorys__IdFro__300424B4">
-          <End Role="categorys_tbl" Type="Self.categorys_tbl" Multiplicity="0..1" />
+        <Association Name="FK__categorys__IdFro__47DBAE45">
+          <End Role="categorys_tbl" Type="Self.categorys_tbl" Multiplicity="1" />
           <End Role="categorys_in_shop" Type="Self.categorys_in_shop" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="categorys_tbl">
@@ -298,8 +298,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__categorys__IdFro__30F848ED">
-          <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="0..1" />
+        <Association Name="FK__categorys__IdFro__48CFD27E">
+          <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="1" />
           <End Role="categorys_in_shop" Type="Self.categorys_in_shop" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="shops_tbl">
@@ -310,8 +310,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__custumer___IDFro__35BCFE0A">
-          <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="0..1" />
+        <Association Name="FK__custumer___IDFro__5AEE82B9">
+          <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="1" />
           <End Role="custumer_historys_tbl" Type="Self.custumer_historys_tbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="shops_tbl">
@@ -322,8 +322,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__custumer___IDfro__36B12243">
-          <End Role="custumers_tbl" Type="Self.custumers_tbl" Multiplicity="0..1" />
+        <Association Name="FK__custumer___IDfro__5BE2A6F2">
+          <End Role="custumers_tbl" Type="Self.custumers_tbl" Multiplicity="1" />
           <End Role="custumer_historys_tbl" Type="Self.custumer_historys_tbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="custumers_tbl">
@@ -334,8 +334,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__shopsInMa__IdFro__2C3393D0">
-          <End Role="malls_tbl" Type="Self.malls_tbl" Multiplicity="0..1" />
+        <Association Name="FK__shopsInMa__IdFro__5DCAEF64">
+          <End Role="malls_tbl" Type="Self.malls_tbl" Multiplicity="1" />
           <End Role="shopsInMall_tbl" Type="Self.shopsInMall_tbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="malls_tbl">
@@ -346,8 +346,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__shopsInMa__IdFro__2D27B809">
-          <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="0..1" />
+        <Association Name="FK__shopsInMa__IdFro__5EBF139D">
+          <End Role="shops_tbl" Type="Self.shops_tbl" Multiplicity="1" />
           <End Role="shopsInMall_tbl" Type="Self.shopsInMall_tbl" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="shops_tbl">
@@ -367,31 +367,31 @@
           <EntitySet Name="malls_tbl" EntityType="Self.malls_tbl" />
           <EntitySet Name="shops_tbl" EntityType="Self.shops_tbl" />
           <EntitySet Name="shopsInMall_tbl" EntityType="Self.shopsInMall_tbl" />
-          <AssociationSet Name="FK__shops_tbl__IdFro__29572725" Association="Self.FK__shops_tbl__IdFro__29572725">
+          <AssociationSet Name="FK__shops_tbl__IdFro__5CD6CB2B" Association="Self.FK__shops_tbl__IdFro__5CD6CB2B">
             <End Role="audiences_tbl" EntitySet="audiences_tbl" />
             <End Role="shops_tbl" EntitySet="shops_tbl" />
           </AssociationSet>
-          <AssociationSet Name="FK__categorys__IdFro__300424B4" Association="Self.FK__categorys__IdFro__300424B4">
+          <AssociationSet Name="FK__categorys__IdFro__47DBAE45" Association="Self.FK__categorys__IdFro__47DBAE45">
             <End Role="categorys_tbl" EntitySet="categorys_tbl" />
             <End Role="categorys_in_shop" EntitySet="categorys_in_shop" />
           </AssociationSet>
-          <AssociationSet Name="FK__categorys__IdFro__30F848ED" Association="Self.FK__categorys__IdFro__30F848ED">
+          <AssociationSet Name="FK__categorys__IdFro__48CFD27E" Association="Self.FK__categorys__IdFro__48CFD27E">
             <End Role="shops_tbl" EntitySet="shops_tbl" />
             <End Role="categorys_in_shop" EntitySet="categorys_in_shop" />
           </AssociationSet>
-          <AssociationSet Name="FK__custumer___IDFro__35BCFE0A" Association="Self.FK__custumer___IDFro__35BCFE0A">
+          <AssociationSet Name="FK__custumer___IDFro__5AEE82B9" Association="Self.FK__custumer___IDFro__5AEE82B9">
             <End Role="shops_tbl" EntitySet="shops_tbl" />
             <End Role="custumer_historys_tbl" EntitySet="custumer_historys_tbl" />
           </AssociationSet>
-          <AssociationSet Name="FK__custumer___IDfro__36B12243" Association="Self.FK__custumer___IDfro__36B12243">
+          <AssociationSet Name="FK__custumer___IDfro__5BE2A6F2" Association="Self.FK__custumer___IDfro__5BE2A6F2">
             <End Role="custumers_tbl" EntitySet="custumers_tbl" />
             <End Role="custumer_historys_tbl" EntitySet="custumer_historys_tbl" />
           </AssociationSet>
-          <AssociationSet Name="FK__shopsInMa__IdFro__2C3393D0" Association="Self.FK__shopsInMa__IdFro__2C3393D0">
+          <AssociationSet Name="FK__shopsInMa__IdFro__5DCAEF64" Association="Self.FK__shopsInMa__IdFro__5DCAEF64">
             <End Role="malls_tbl" EntitySet="malls_tbl" />
             <End Role="shopsInMall_tbl" EntitySet="shopsInMall_tbl" />
           </AssociationSet>
-          <AssociationSet Name="FK__shopsInMa__IdFro__2D27B809" Association="Self.FK__shopsInMa__IdFro__2D27B809">
+          <AssociationSet Name="FK__shopsInMa__IdFro__5EBF139D" Association="Self.FK__shopsInMa__IdFro__5EBF139D">
             <End Role="shops_tbl" EntitySet="shops_tbl" />
             <End Role="shopsInMall_tbl" EntitySet="shopsInMall_tbl" />
           </AssociationSet>

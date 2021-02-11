@@ -7,41 +7,41 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class AudiencesDAL
+    public class CustomerHistoryDAL
     {
 
 
-        public static int Add(audiences_tbl audiences)
+        public static int Add(custumer_historys_tbl custumerHistorys)
         {
             using (var context = new DatabaseEntities())
             {
-                context.audiences_tbl.Add(audiences);
+                context.custumer_historys_tbl.Add(custumerHistorys);
                 context.SaveChanges();
                 int code = 0;
-                foreach (audiences_tbl item in context.audiences_tbl)
+                foreach (custumer_historys_tbl item in context.custumer_historys_tbl)
                 {
-                    code = item.AudienceID;
+                    code = item.CustumerHistorysID;
                 }
                 return code;
             }
 
         }
-        public static List<audiences_tbl> GetAll()
+        public static List<custumer_historys_tbl> GetAll()
         {
             using (var context = new DatabaseEntities())
             {
-                List<audiences_tbl> listAudiences = context.audiences_tbl.ToList();
-                return listAudiences;
+                List<custumer_historys_tbl> listcustumer_Historys = context.custumer_historys_tbl.ToList();
+                return listcustumer_Historys;
             }
 
         }
-        public static bool Delete(int adienceID)
+        public static Boolean delete(int custumerHistorysID)
         {
             using (var context = new DatabaseEntities())
             {
                 try
                 {
-                    audiences_tbl toDel = context.audiences_tbl.FirstOrDefault(x => x.AudienceID ==adienceID );
+                    custumer_historys_tbl toDel = context.custumer_historys_tbl.FirstOrDefault(x => x.CustumerHistorysID == custumerHistorysID);
                     if (toDel != null)
                     {
                         context.Entry(toDel).State = System.Data.Entity.EntityState.Deleted;
@@ -57,18 +57,20 @@ namespace DAL
 
             }
         }
-        public static bool update(audiences_tbl audiences)
+        public static bool update(custumer_historys_tbl Custumer_Historys_tbl)
         {
             using (var context = new DatabaseEntities())
             {
                 try
                 {
-                    audiences_tbl old = context.audiences_tbl.FirstOrDefault(x => x.AudienceID == audiences.AudienceID);
+                    custumer_historys_tbl old = context.custumer_historys_tbl.FirstOrDefault(x => x.CustumerHistorysID == Custumer_Historys_tbl.CustumerHistorysID);
 
                     if (old != null)
                     {
-                        old.AudienceName = audiences.AudienceName;
-                        
+                        old.IDFromShop = Custumer_Historys_tbl.IDFromShop;
+                        old.IDfromUser = Custumer_Historys_tbl.IDfromUser;
+                        old.NumOfTimeGoToShope = Custumer_Historys_tbl.NumOfTimeGoToShope;
+                        old.NumOfTimeWasSatified = Custumer_Historys_tbl.NumOfTimeWasSatified;
                         context.SaveChanges();
                     }
                     return true;

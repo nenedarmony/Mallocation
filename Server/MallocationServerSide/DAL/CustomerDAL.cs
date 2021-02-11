@@ -1,47 +1,45 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace DAL
 {
-    public class AudiencesDAL
+    public class CustomerDAL
     {
 
 
-        public static int Add(audiences_tbl audiences)
+        public static int Add(custumers_tbl custumers)
         {
             using (var context = new DatabaseEntities())
             {
-                context.audiences_tbl.Add(audiences);
+                context.custumers_tbl.Add(custumers);
                 context.SaveChanges();
                 int code = 0;
-                foreach (audiences_tbl item in context.audiences_tbl)
+                foreach (custumers_tbl item in context.custumers_tbl)
                 {
-                    code = item.AudienceID;
+                    code = item.CustumerID;
                 }
                 return code;
             }
 
         }
-        public static List<audiences_tbl> GetAll()
+        public static List<custumers_tbl> GetAll()
         {
             using (var context = new DatabaseEntities())
             {
-                List<audiences_tbl> listAudiences = context.audiences_tbl.ToList();
-                return listAudiences;
+                List<custumers_tbl> listCustumers = context.custumers_tbl.ToList();
+                return listCustumers;
             }
 
         }
-        public static bool Delete(int adienceID)
+        public static Boolean delete(int CustumerID)
         {
             using (var context = new DatabaseEntities())
             {
                 try
                 {
-                    audiences_tbl toDel = context.audiences_tbl.FirstOrDefault(x => x.AudienceID ==adienceID );
+                    custumers_tbl toDel = context.custumers_tbl.FirstOrDefault(x => x.CustumerID == CustumerID);
                     if (toDel != null)
                     {
                         context.Entry(toDel).State = System.Data.Entity.EntityState.Deleted;
@@ -57,18 +55,17 @@ namespace DAL
 
             }
         }
-        public static bool update(audiences_tbl audiences)
+        public static bool update(custumers_tbl Custumers)
         {
             using (var context = new DatabaseEntities())
             {
                 try
                 {
-                    audiences_tbl old = context.audiences_tbl.FirstOrDefault(x => x.AudienceID == audiences.AudienceID);
+                    custumers_tbl old = context.custumers_tbl.FirstOrDefault(x => x.CustumerID == Custumers.CustumerID);
 
                     if (old != null)
                     {
-                        old.AudienceName = audiences.AudienceName;
-                        
+                        old.CustumerName = Custumers.CustumerName;
                         context.SaveChanges();
                     }
                     return true;

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Models
+namespace DAL
 {
     using System;
     using System.Collections.Generic;
@@ -15,8 +15,8 @@ namespace Models
     public partial class shopsInMall_tbl
     {
         public int shopInMallID { get; set; }
-        public Nullable<int> IdFromMall { get; set; }
-        public Nullable<int> IdFromShop { get; set; }
+        public int IdFromMall { get; set; }
+        public int IdFromShop { get; set; }
     
         public virtual malls_tbl malls_tbl { get; set; }
         public virtual shops_tbl shops_tbl { get; set; }
